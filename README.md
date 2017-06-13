@@ -6,6 +6,7 @@ Test project for Docker+Meteor+Git post-receieve hook for deployment.
 Meteor
     Javascript
     Mongo
+    React
 Docker
 
 ## Git Hook - Post receive
