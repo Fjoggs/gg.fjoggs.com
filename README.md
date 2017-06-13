@@ -2,6 +2,9 @@
 
 Test project for Docker+Meteor+Git post-receieve hook for deployment.
 
+# Frameworks
+Meteor
+
 # Post receive
 
 Uses rsync to deploy to production and dev environments.
