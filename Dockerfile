@@ -10,7 +10,7 @@ ENV CI=true
 # Install app dependencies
 COPY package.json /src/app/
 RUN npm install && \
-    npm install -g pushstate-server
+    npm install serve
 
 # Bundle app source
 COPY . /src/app
@@ -21,5 +21,5 @@ RUN npm run build
 EXPOSE 9000
 
 # defined in package.json
-CMD [ "npm", "run", "start" ]
+CMD [ "npm", "run", "start:prod" ]
 
