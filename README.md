@@ -6,6 +6,6 @@ Test project for Docker+Meteor+Git post-receieve hook for deployment.
 Meteor
 Docker
 
-# Post receive
+# Git Hook - Post receive
 
 Uses rsync to deploy to production and dev environments.
