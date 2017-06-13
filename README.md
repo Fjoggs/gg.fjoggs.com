@@ -4,6 +4,7 @@ Test project for Docker+Meteor+Git post-receieve hook for deployment.
 
 ## Frameworks
 Meteor
+    Javascript
 Docker
 
 ## Git Hook - Post receive
