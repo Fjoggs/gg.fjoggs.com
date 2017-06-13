@@ -1,13 +1,8 @@
 # gg.fjoggs.com
 
-Test project for Docker+Meteor+Git post-receieve hook for deployment.
+Test project for Docker+React create app+Git post-receieve hook for deployment.
 
 ## Frameworks
-Meteor
-    Javascript
-    Mongo
-    React
-Docker
 
 ## Git Hook - Post receive
 Uses rsync to deploy to production and dev environments.
