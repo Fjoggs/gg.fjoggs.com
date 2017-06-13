@@ -1,11 +1,19 @@
 {
   "name": "gg.fjoggs.com",
+  "version": "0.1.0",
   "private": true,
-  "scripts": {
-    "start": "meteor run"
-  },
   "dependencies": {
-    "babel-runtime": "^6.20.0",
-    "meteor-node-stubs": "~0.2.4"
+    "react": "^15.6.0",
+    "react-dom": "^15.6.0"
+  },
+  "devDependencies": {
+    "react-scripts": "1.0.7"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "start:prod": "pushstate-server build",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
   }
 }
