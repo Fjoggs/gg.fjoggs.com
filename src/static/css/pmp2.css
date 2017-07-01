@@ -10,12 +10,6 @@ body {
 	background-repeat: no-repeat;
 	background-position: center 110px;
 }
-#feature
-{
-	color:#FFFFFF;
-	font-family: Arial, Helvetica, sans-serif;
-	font-size: 12px;
-}
 a:link {
 	color:#FFFFFF;
 	font-family: Arial, Helvetica, sans-serif;
@@ -39,32 +33,60 @@ a:active {
 	font-size: 12px;
 }
 
-#container {
-   	min-height:100%;
-   	position:relative;
-}
 .header {
 	padding: 10px;
 	height: 110px;
-	background-color: #0a0a0a;
+	background-color: #151515;
 	background-image: url(../images/title.png);
 	background-repeat: no-repeat;
 	background-position: center center;
 }
-.body {
-	padding: 0px;
-	padding-bottom: 110px;   /* Height of the footer */
+
+.navbar {
+	width: 100%;
+	color: white;
+	font-family: 'Open Sans Condensed', sans-serif;
+	font-size: 14px;
+	text-transform: uppercase;
+	background-color: #0c0c0c;
 }
-.vidframe {
-	height: 480px;
-	width: 853px;
-	margin-top: 50px;
-	margin-right: auto;
-	margin-bottom: 0px;
-	margin-left: auto;
+
+.nav {
+	display: block;	
+	margin: 0px;
+	padding: 0;
+	overflow: hidden;
 	text-align: center;
-	padding: 33px;
-	background-image: url(../images/vidframebg.png);
+	list-style-type: none;
+}
+
+.nav li {
+	display: inline-block;
+	color: white;
+	text-align: center;
+	list-style-type: none;
+	margin: 12px 20px 0px 0px;
+	padding-bottom: 12px;
+	cursor: pointer;
+}
+
+.nav li:hover {
+	color: #c22f25;
+}
+
+.active {
+	display: inline-block;
+	list-style-position: inside;
+	color: #c22f25 !important;
+	border-bottom: 4px solid #c22f25;
+}
+
+.container {
+	text-align: center;
+	font-family: "Open Sans Condensed", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: 16px;
+	color: white;
+	background-color: #0c0c0c;
 }
 
 
@@ -80,20 +102,8 @@ a:active {
 	background-image: url(../images/logo.png);
 	background-repeat: no-repeat;
 	background-position: center center;
-}
-.buttons {
-	border-right-width: 1px;
-	border-left-width: 1px;
-	border-top-color: #000;
-	border-right-color: #000;
-	border-bottom-color: #000;
-	border-left-color: #000;
+	position: absolute;
+	bottom: 0;
+	margin-bottom: 110px;
 }
 
-.iframe {
-	border: 0;
-}
-
-.container {
-   	height:100%;
-}
