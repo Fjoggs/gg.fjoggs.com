@@ -1,0 +1,167 @@
+<h2 id="quickrecap">Quick recap</h2>
+<p>This is not a beginner's guide to the console, but I will summarize a quick information recap in here.</p>
+<ul>
+<li>The console is a command-line interface that lets you type in commands, change and see variable values.</li>
+<li>To activate or deactivate the console, you press the tilde key (~).</li>
+<li>The bottommost line always contains the current user input buffer.</li>
+<li>Once you're done typing your message or command, you press enter for the system to execute it.</li>
+<li>The caret is the blinking cursor that is either an underscore (_) or a full rectangle block (�).</li>
+<li>All commands start with a leading slash (/) or backslash (\).</li>
+</ul>
+<p>If you don't type the leading slash or backslash in front of your text and press enter:</p>
+<ol>
+<li>If in-game, it will send a global chat message.</li>
+<li>If not in-game, the game will add a leading backslash for you.<br />
+In other words, it considers everything to be a command.</li>
+</ol>
+<p>The 2 insertion modes are the following:</p>
+<ol>
+<li>When the caret is a small underscore (_), a new character gets inserted (added) where the caret is.</li>
+<li>When the caret is a full rectangle block (�), a new character replaces the character where the caret is.</li>
+</ol>
+<p>Variables accessible through the console are called <em>console variables</em> or <em>cvars</em> for short.</p>
+<h2 id="autocompletion">Auto-completion</h2>
+<p>Running auto-completion (by pressing tab) can be used to help speed up several processes:</p>
+<ul>
+<li>To list variables and commands starting with a certain string pattern after you've typed at least one character.<br />
+Example: type in <code>r_</code> and then press tab to get a list of all renderer variables.</li>
+<li>To add the leading backslash.<br />
+Example: to vote cpm3a, you can type in <code>cv map cpm3a</code>, press tab and then enter.<br />
+The auto-completion recognizes that cv is a command and will add the leading backslash.</li>
+<li>To speed up typing.</li>
+</ul>
+<h2 id="shortcommandaliases">Short command aliases</h2>
+<p>Certain commands and vote strings have short aliases to reduce typing:</p>
+<p>| Alias | Command |
+|:------|:--------|
+| cv    | callvote |
+| wr    | weaponrespawn |
+| falldamage | fallingdamage |
+| limit | scorelimit |
+| ot | overtime |
+| gp | gameplay |
+| thaw | thawtime |
+| tl | timelimit |
+| ref | referee |
+| unref | unreferee |
+| mute | mutespecs |</p>
+<h2 id="detailedconnectioninfo">Detailed connection info</h2>
+<p>Use the <code>cstats</code> command to check your ping range for both client-to-server and server-to-client.<br />
+With no argument, it gives you information for yourself.<br />
+The command can take a player ID if you want to see the stats of someone else.  </p>
+<h2 id="search">Search</h2>
+<p>There are 2 very useful commands for searching variables and commands, called <code>cvarlist</code> and <code>cmdlist</code>.<br />
+The awesomest property they have is the * matching syntax.<br />
+The * will try to match as many characters as possible that do not match the following pattern.</p>
+<p><code>cvarlist crosshair</code> will print out all variables that start with the word <em>crosshair</em>.<br />
+<code>cvarlist *crosshair</code> will print out all variables that contain the word <em>crosshair</em>.</p>
+<p>The cvarlist command displays a bunch of letters in front of the variables it found. They describe variable types.</p>
+<h2 id="variabletypes">Variable types</h2>
+<p>Variable types get printed out as a single character when using the <code>cvarlist</code> command.</p>
+<p>|   | Category     | Description / Remarks  |
+|:-:|:-------------|:-----------------------|
+| S | server info  | sent in response to front-end requests |
+| s | system info  | these cvars will be duplicated on all clients |
+| U | user info    | sent to server on connect or change |
+| R | ROM          | display only, cannot be set by user at all |
+| I | init         | don't allow change from console at all, but can be set from the command line |
+| A | archive      | used for system variables, not for player specific configurations |
+| L | latched      | will only change when C code next does a Cvar<em>Get() call |
+| C | cheat        | can not be changed when sv</em>cheats is 0 |
+| ? | user created | unknown to the game and created by a set command |</p>
+<h2 id="usingcvtoqueryvalues">Using <code>cv</code> to query values</h2>
+<p>The <code>callvote</code> command can be used to display help and query current CPMA/OSP server settings.<br />
+<code>cv</code> will query the help and give you a list of all the things that can be voted.  </p>
+<p>Suppose that after reading the help, you're interested in the <em>gameplay</em> category.<br />
+<code>cv gameplay</code> will display the help of that category, showing you what can be voted.<br />
+It will also tell you what the current gameplay mode is.</p>
+<h2 id="osphelpsyntax">OSP help syntax</h2>
+<p>Most commands that require at least 1 argument will display some help if you invoke them with no argument.<br />
+Example: <code>callvote</code></p>
+<p>However, some commands can be run without any argument, like <code>cstats</code>, so a different method is needed to display the help.<br />
+OSP commands have a special argument for querying the help: <code>?</code>.<br />
+Example: <code>cstats ?</code></p>
+<h2 id="commandswithclientnumbers">Commands with client numbers</h2>
+<p>Several commands require a client number as an argument, like <code>kick</code>, <code>remove</code>, <code>cstats</code>, etc.<br />
+Most of those now support passing a player name (without color codes) and will tell you if there's any ambiguity preventing execution.</p>
+<h2 id="pastingfromtheclipboard">Pasting from the clipboard</h2>
+<p>You can ctrl+c text on the desktop and paste it with ctrl+v into the console.<br />
+This is mostly used for entering IP addresses for the <code>connect</code> command.</p>
+<h2 id="thetogglecommand">The <code>toggle</code> command</h2>
+<p>Toggles a cvar between a set of defined values.  </p>
+<p>Syntax: toggle cvarname [value1 value2 value3...]  </p>
+<p>So, what does it do with integers?</p>
+<ul>
+<li>when no argument is passed:  </li>
+</ul>
+<blockquote>
+  <p>if the cvar is not 0, it becomes 0<br />
+  if the cvar is 0, it becomes 1  </p>
+  <ul>
+  <li>when there are arguments:<br />
+  if the current isn't on the list, it sets the cvar to the first one in the list<br />
+  if the current value is in the list, it set the cvar to the next one (with wrap-around) in the list  </li>
+  </ul>
+</blockquote>
+<p>So, for a cvar with possible values 0, 1 and 2, having the bind <code>bind space "toggle cvarname 0 1 2"</code> means every time you press the space bar, the cvar will toggle to the next possible value.</p>
+<h2 id="findingthelasterror">Finding the last error</h2>
+<p>After an error occurred, the error message can be found in the cvar <code>com_lastError</code>.<br />
+This cvar will not be defined before at least 1 error happened.</p>
+<h2 id="quotesandcommandchaining">Quotes and command chaining</h2>
+<p>Command arguments are separated by spaces (<code></code>), commands by semi-colons (<code>;</code>).<br />
+The problem is that sometimes, you need one of those characters inside an argument.<br />
+The solution to this is enclosing the entire argument in double quotes (<code>"</code>).  </p>
+<p>Command chaining is mostly useful for binding multiple actions to a single key/button.</p>
+<p>Example: <code>bind space "drop;weapnext"</code> to drop the current weapon and select the next one (otherwise you get the pummel).<br />
+Note that <code>bind space drop;weapnext</code> would execute <code>bind space drop</code> and then <code>weapnext</code>.</p>
+<h2 id="theresetcommand">The <code>reset</code> command</h2>
+<p>Resets a cvar to its default value.</p>
+<p>Syntax: reset cvarname</p>
+<p>The current and default values can be queried with <code>/cvarname</code>.</p>
+<h2 id="thesetcommandfamily">The <code>set</code> command family</h2>
+<p>Sets a cvar to a value. If the cvar doesn't exist, it gets created.</p>
+<p>Syntax: set cvarname value</p>
+<p>| Command | Flag | Explanation |
+|:--------|:-----|:------------|
+| set  | none |  |
+| seta | archive | save to the config |
+| setu | user info | sent to server on connect or change |
+| sets | server info | sent in response to front end requests |</p>
+<h2 id="thevstrcommand">The <code>vstr</code> command</h2>
+<p>Executes the content of a variable as a command.</p>
+<p>Syntax: vstr cvarname</p>
+<p>Example #1: with <code>set rage quit</code>, <code>vstr rage</code> will execute <code>quit</code></p>
+<p>Example #2: connection scripts<br />
+In a read-only config: <code>set roboty connect roboty.cpmpickup.eu:27961;password lobstarz</code><br />
+In-game: <code>vstr roboty</code> to connect to the server</p>
+<p>Example #3: alternating smiley<br />
+<code>set smiley1 "say ^5:);set smiley vstr smiley2"</code><br />
+<code>set smiley2 "say ^6:);set smiley vstr smiley1"</code><br />
+<code>set smiley vstr smiley1</code><br />
+<code>bind space vstr smiley</code></p>
+<h2 id="keymapping">Key mapping</h2>
+<p>| Key | Action |
+|:----|:-------|
+| up arrow | next command |
+| down arrow | previous command |
+| home | move caret at the first character |
+| end | move caret after the last character |
+| delete | delete the character above the caret |
+| backspace | delete the character to the left of the caret |
+| page up | scroll up 2 lines |
+| page down | scroll down 2 lines |
+| wheel up | scroll up 2 lines |
+| wheel down | scroll down 2 lines |
+| insert | toggles between the 2 insertion modes |
+| enter | finish the line |
+| tab | run auto-completion |
+| control + wheel up | scroll up 6 lines |
+| control + wheel down | scroll down 6 lines |
+| control + home | scroll up to the first line |
+| control + end | scroll down to the last line |
+| control + L | clear the screen (same as typing /clear) |
+| control + P | previous command |
+| control + N | next command |
+| control + V | paste from the clipboard |
+| shift + wheel up | previous command |
+| shift + wheel down | next command |</p>
